@@ -15,7 +15,7 @@ CookieStore.prototype.getRandomcust = function() {
 }
 
 CookieStore.prototype.getHourlySales = function () {
-  for (var i = 0; i< this.hoursOpen.length; i++) {
+  for (var i = 0; i< hoursOpen.length; i++) {
     var rand = Math.floor(this.getRandomcust() * this.avgCookie);
     this.hourlySales.push(rand);
     this.totalSales += rand;
@@ -30,7 +30,9 @@ var alki = new CookieStore ('Alki', 8, 3, 24, 2.6);
 
 CookieStore.prototype.render = function() {
     this.getHourlySales();
-    var sectionEl = document.getElementById("pikePlaceStore");
+    var storeSection = document.getElementById('stores');
+    var newStore = document.createElement('section');
+    storeSection.appendChild(newStore);
     var ulEl = document.createElement("ul");
 
     for (var i = 0; i < hoursOpen.length; i++) {
@@ -41,8 +43,8 @@ CookieStore.prototype.render = function() {
     var liElTotal = document.createElement("li");
     liElTotal.textContent = "Total: " + this.totalSales;
     ulEl.appendChild(liElTotal);
-    sectionEl.textContent = this.name;
-    sectionEl.appendChild(ulEl);
+    newStore.textContent = this.name;
+    newStore.appendChild(ulEl);
   }
 
   pikePlace.render();

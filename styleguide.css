@@ -22,7 +22,7 @@ div {
   margin: 5px;
 }
 
-#stuff {
+#fixspace {
   text-align: left;
   margin-top: 100px;
 }
@@ -32,6 +32,6 @@ div {
   margin: 0px, 0px, 0px, 0px;
 }
 
-.words {
+.desc2 {
   margin-top: -15px;
 }
