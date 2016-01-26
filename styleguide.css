@@ -1,25 +1,37 @@
 body {
   background-color: #ffffff;
-  font-family: Montserrat, Verdana, Georgia, sans-serif;
+  font-family: Montserrat, Verdana, sans-serif;
 }
 
-h1 {
+h1 h2 {
   color: #400000;
-}
-
-h2 {
-  color: #d26502;
 }
 
 div {
   font-size: 14px;
-  text-align: center;
 }
+
 
 .colorBox {
   float: left;
+  text-align: center;
+  font-family: Verdana, sans-serif;
   color: #ffffff;
   width: 80px;
   height: 60px;
   margin: 5px;
+}
+
+#stuff {
+  text-align: left;
+  margin-top: 100px;
+}
+
+.desc {
+  text-align: left;
+  margin: 0px, 0px, 0px, 0px;
+}
+
+.words {
+  margin-top: -15px;
 }
