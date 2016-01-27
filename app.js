@@ -8,11 +8,11 @@ function CookieStore(name, hoursOpen, min, max, avg) {
   this.hoursOpen = hoursOpen;
   this.hourlySales = [];
   this.totalSales = 0;
-}
+};
 
 CookieStore.prototype.getRandomcust = function() {
   return Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer;
-}
+};
 
 CookieStore.prototype.getHourlySales = function () {
   for (var i = 0; i< hoursOpen.length; i++) {
@@ -20,7 +20,7 @@ CookieStore.prototype.getHourlySales = function () {
     this.hourlySales.push(rand);
     this.totalSales += rand;
   }
-}
+};
 
 var pikePlace = new CookieStore ('Pike Place', 8, 17, 88, 5.2);
 var seaTac = new CookieStore ('SeaTac Airport', 8, 6, 24, 1.2);
