@@ -1,4 +1,4 @@
-var hoursOpen = ["10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
+var hoursOpen = ["10:00am", "11:00am", "12:00pm", "1:00pm", "2:00pm", "3:00pm", "4:00pm", "5:00pm"];
 var table = document.getElementById("stores");
 var stores = []
 var pikePlace = new CookieStore ('Pike Place', 8, 17, 88, 5.2, 'pikeRow');
@@ -38,16 +38,31 @@ CookieStore.prototype.render = function() {
   row.appendChild(td);
   storeSection.appendChild(row);
 
-  for (var i = 0; i < this.hourlySales.length; i++);
+  for (var i = 0; i < this.hourlySales.length; i++) {
     var tdHourly = document.createElement('td');
     tdHourly.innerHTML = this.hourlySales[i];
     row.appendChild(tdHourly);
-    storeSection.appendChild(row);
 
+  }
+  storeSection.appendChild(row);
+};
 
-}
+  var storeSection = document.getElementById('stores');
+  var thead = document.createElement('thead');
+  storeSection.appendChild(thead);
+  var row = document.createElement('tr');
+  thead.appendChild(row);
+  var td = document.createElement('td');
+  td.innerHTML = "Location";
+  row.appendChild(td);
 
+  for (var i = 0; i < hoursOpen.length; i++) {
+    var td = document.createElement('td');
+    td.innerHTML = hoursOpen[i];
+    row.appendChild(td);
+  }
 
+// Render
   pikePlace.render();
   seaTac.render();
   southcenter.render();
@@ -73,20 +88,3 @@ form.addEventListener("submit", function(event) {
   new CookieStore(newStore, newMin, newMax, newAvg, newRow);
   clearFields(event);
 });
-
-
-
-var storeSection = document.getElementById('stores');
-var thead = document.createElement('thead');
-storeSection.appendChild(thead);
-var row = document.createElement('tr');
-thead.appendChild(row);
-var td = document.createElement('td');
-td.innerHTML = "Location";
-row.appendChild(td);
-
-for (var i = 0; i < hoursOpen.length; i++) {
-  var td = document.createElement('td');
-  td.innerHTML = hoursOpen[i];
-  row.appendChild(td);
-}
