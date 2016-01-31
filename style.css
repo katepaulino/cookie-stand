@@ -1,10 +1,11 @@
 body {
   background-color: #FFFFFF;
   font-family: Montserrat, Verdana, sans-serif;
+  color: #000000;
 }
 
 a:link {
-  color: #35364E;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -19,19 +20,21 @@ a:hover {
 }
 
 a:active {
-  color: #35364E;
+  color: #000000;
   text-decoration: none;
 }
 
 nav {
   display: block;
-  border: 3px solid #000000;
+  margin-left: 400px;
   padding-top: 10px;
   padding-bottom: 10px;
+  position: absolute;
 }
 
 h1 {
   color: #400000;
+  text-align: center;
 }
 
 h2 {
@@ -41,6 +44,25 @@ h2 {
 
 h3 {
   color: #D26502;
+  text-align: center;
+}
+
+#menuHead {
+  color: #D26502;
+  font-size: 20px;
+  text-align: left;
+}
+
+#about {
+  margin-top: 60px;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+#products {
+  margin-top: 60px;
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
 #inputForm {
