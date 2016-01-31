@@ -3,8 +3,12 @@ body {
   font-family: Montserrat, Verdana, sans-serif;
 }
 
-h1 h2 {
+h1 {
   color: #400000;
+}
+
+h2 {
+  color: #D26502;
 }
 
 .colorBox {
@@ -49,15 +53,13 @@ h1 h2 {
 }
 
 #hover {
-  color:#F0AB21;
-  text-decoration: underline;
+  color: #F0AB21;
 }
 
 #visited {
-  color:#9AB3CA;
+  color: #9AB3CA;
 }
 
 #active {
   color: #35364E;
-  text-decoration: underline;
 }
