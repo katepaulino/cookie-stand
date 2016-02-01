@@ -8,12 +8,10 @@ var bellevueSquare = stores.push(new CookieStore ('Bellevue Square', 8, 20, 48, 
 var alki = stores.push(new CookieStore ('Alki', 8, 3, 24, 2.6, 'alkiRow'));
 
 function CookieStore(storeLocation, hoursOpen, min, max, avg, storeRow) {
-  //hoursOpen isn't used anywhere. Why is it there?
   this.name = storeLocation;
   this.minCustomer = min;
   this.maxCustomer = max;
   this.avgCookie = avg;
-  //this.row doesn't appear to be necessary
   this.row = storeRow;
   this.hourlySales = [];
   this.totalSales = 0;
@@ -79,7 +77,6 @@ stores.forEach(function(store){
   store.render();
 });
 
-// Clear Fields
 var clearFields = function(event){
   event.target.storeLocal.value = null;
   event.target.minInput.value = null;
