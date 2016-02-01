@@ -1,19 +1,20 @@
 var hoursOpen = ["10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
 var table = document.getElementById("stores");
 var stores = []
-var pikePlace = new CookieStore ('Pike Place', 8, 17, 88, 5.2, 'pikeRow');
-var seaTac = new CookieStore ('SeaTac Airport', 8, 6, 24, 1.2, 'seaTacRow');
-var southcenter = new CookieStore ('Southcenter', 8, 11, 38, 1.9, 'southcenterRow');
-var bellevueSquare = new CookieStore ('Bellevue Square', 8, 20, 48, 3.3, 'bellevueRow');
-var alki = new CookieStore ('Alki', 8, 3, 24, 2.6, 'alkiRow');
+var pikePlace = stores.push(new CookieStore ('Pike Place', 8, 17, 88, 5.2, 'pikeRow'));
+var seaTac = stores.push(new CookieStore ('SeaTac Airport', 8, 6, 24, 1.2, 'seaTacRow'));
+var southcenter = stores.push(new CookieStore ('Southcenter', 8, 11, 38, 1.9, 'southcenterRow'));
+var bellevueSquare = stores.push(new CookieStore ('Bellevue Square', 8, 20, 48, 3.3, 'bellevueRow'));
+var alki = stores.push(new CookieStore ('Alki', 8, 3, 24, 2.6, 'alkiRow'));
 
 function CookieStore(storeLocation, hoursOpen, min, max, avg, storeRow) {
+  //hoursOpen isn't used anywhere. Why is it there?
   this.name = storeLocation;
   this.minCustomer = min;
   this.maxCustomer = max;
   this.avgCookie = avg;
+  //this.row doesn't appear to be necessary
   this.row = storeRow;
-  this.hoursOpen = hoursOpen;
   this.hourlySales = [];
   this.totalSales = 0;
 };
@@ -30,23 +31,26 @@ CookieStore.prototype.getHourlySales = function () {
 };
 
 CookieStore.prototype.render = function() {
-  this.getHourlySales();
   var storeSection = document.getElementById('stores');
   var row = document.createElement('tr');
   var td = document.createElement('td');
   td.innerHTML = this.name;
   row.appendChild(td);
-  storeSection.appendChild(row);
 
   for (var i = 0; i < this.hourlySales.length; i++) {
     var tdHourly = document.createElement('td');
     tdHourly.innerHTML = this.hourlySales[i];
     row.appendChild(tdHourly);
-
   }
+
+  var total = document.createElement('td');
+  total.innerHTML = this.totalSales;
+  row.appendChild(total);
+
   storeSection.appendChild(row);
 };
 
+function generateTableHeading(){
   var storeSection = document.getElementById('stores');
   var thead = document.createElement('thead');
   storeSection.appendChild(thead);
@@ -67,13 +71,13 @@ CookieStore.prototype.render = function() {
   tdTotal.innerHTML = "Total";
   row.appendChild(tdTotal);
   storeSection.appendChild(row);
+}
 
-
-pikePlace.render();
-seaTac.render();
-southcenter.render();
-bellevueSquare.render();
-alki.render();
+generateTableHeading();
+stores.forEach(function(store){
+  store.getHourlySales();
+  store.render();
+});
 
 // Clear Fields
 var clearFields = function(event){
@@ -86,11 +90,14 @@ var clearFields = function(event){
 var formEl = document.getElementById("form");
 formEl.addEventListener("submit", function(event) {
   event.preventDefault();
-  var newStore = event.target.storeLocal.value;
-  var newMin = event.target.minInput.value;
-  var newMax = event.target.maxInput.value;
-  var newAvg = event.target.avgInput.value;
-  var newRow = event.target.storeLocal.value + "Row";
-  new CookieStore(newStore, newMin, newMax, newAvg, newRow);
+  var newStoreName = event.target.storeLocal.value;
+  var newMin = parseInt(event.target.minInput.value);
+  var newMax = parseInt(event.target.maxInput.value);
+  var newAvg = parseFloat(event.target.avgInput.value);
+  var newRow = newStoreName + "Row";
+  var newStore = new CookieStore(newStoreName, 8, newMin, newMax, newAvg, newRow);
+  newStore.getHourlySales();
+  newStore.render();
+  stores.push(newStore);
   clearFields(event);
 });
