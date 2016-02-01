@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Pat's Salmon Cookies</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="animate.css">
     <link href="style.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
@@ -11,21 +12,20 @@
     <p><h4><span id="slogan"><em>"Salmon cookies made with fish, salmon cookies are delish!"</em></span></h4>
     </p>
     <h2>Sales Generator</h2>
-    <p><img src='salmon.png'id='salmon'/>
+    <p><img class="animated wobble" src='salmon.png'id='salmon'/>
     </p>
     <p><div id='inputForm' align='center'>
       <form id='form'>
       <p><label>Location &nbsp; <input type="text" id="storeLocal"></label>
-      <label>&nbsp; Min. Customer &nbsp;<input type="text" id="minCustInput"></label>
-      <label>&nbsp; Max. Customer &nbsp;<input type="text" id="maxCustInput"></label>
+      <label>&nbsp; Min. Customer &nbsp;<input type="text" id="minInput"></label>
+      <label>&nbsp; Max. Customer &nbsp;<input type="text" id="maxInput"></label>
       <label>&nbsp; Average Sales &nbsp;<input type="text" id="avgInput"></label>
       <button type="submit" id="submit">Submit</button>
       </form>
     </div>
    </p>
     <table id="stores" align="center"></table>
-
-    <p>
+   </p>
       <div id="home">
         <a href="index.html">Home</a>
       </div>

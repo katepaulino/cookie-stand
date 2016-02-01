@@ -1,4 +1,4 @@
-var hoursOpen = ["10:00am", "11:00am", "12:00pm", "1:00pm", "2:00pm", "3:00pm", "4:00pm", "5:00pm"];
+var hoursOpen = ["10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
 var table = document.getElementById("stores");
 var stores = []
 var pikePlace = new CookieStore ('Pike Place', 8, 17, 88, 5.2, 'pikeRow');
@@ -62,27 +62,33 @@ CookieStore.prototype.render = function() {
     row.appendChild(td);
   }
 
-// Render
-  pikePlace.render();
-  seaTac.render();
-  southcenter.render();
-  bellevueSquare.render();
-  alki.render();
+  var tdTotal = document.createElement('th');
+  tdTotal.textContent = this.totalSales;
+  tdTotal.innerHTML = "Total";
+  row.appendChild(tdTotal);
+  storeSection.appendChild(row);
+
+
+pikePlace.render();
+seaTac.render();
+southcenter.render();
+bellevueSquare.render();
+alki.render();
 
 // Clear Fields
 var clearFields = function(event){
   event.target.storeLocal.value = null;
-  event.target.minCustInput.value = null;
-  event.target.maxCustInput.value = null;
+  event.target.minInput.value = null;
+  event.target.maxInput.value = null;
   event.target.avgInput.value = null;
 };
 
-var form = document.getElementById("form");
-form.addEventListener("submit", function(event) {
+var formEl = document.getElementById("form");
+formEl.addEventListener("submit", function(event) {
   event.preventDefault();
   var newStore = event.target.storeLocal.value;
-  var newMin = event.target.minCustInput.value;
-  var newMax = event.target.maxCustInput.value;
+  var newMin = event.target.minInput.value;
+  var newMax = event.target.maxInput.value;
   var newAvg = event.target.avgInput.value;
   var newRow = event.target.storeLocal.value + "Row";
   new CookieStore(newStore, newMin, newMax, newAvg, newRow);
