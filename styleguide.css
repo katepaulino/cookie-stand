@@ -1,6 +1,6 @@
 body {
   background-color: #ffffff;
-  font-family: Montserrat, Verdana, sans-serif;
+  font-family: Inconsolata, Verdana, sans-serif;
 }
 
 h1 {
@@ -37,11 +37,11 @@ h2 {
 }
 
 #montserrat {
-  font-family: Montserrat;
+  font-family: Inconsolata;
 }
 
 #verdana {
-  font-family: Verdana;
+  font-family: Inconsolata;
 }
 
 #sanserif{
