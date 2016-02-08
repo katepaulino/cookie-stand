@@ -24,21 +24,6 @@ a:active {
   text-decoration: none;
 }
 
-a.back-to-top {
-	display: none;
-	width: 60px;
-	height: 60px;
-	text-indent: -9999px;
-	position: fixed;
-	z-index: 999;
-	right: 20px;
-	bottom: 20px;
-	background: #F0AB21 url("up-arrow.png") no-repeat center 43%;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	border-radius: 30px;
-}
-
 nav {
   display: block;
   font-size: 18px;
@@ -111,6 +96,12 @@ div {
   color: #35364E;
   font-size: 20px;
   text-align: left;
+}
+
+#salmonSide {
+  float: left;
+  position: fixed;
+  margin-right: 1000px;
 }
 
 #about {
